@@ -11,7 +11,7 @@
  | Definition as published by the Open Source Initiative (OSI).             |
  *--------------------------------------------------------------------------*/
 package org.rapla.plugin.appointmentmarker;
-import org.apache.avalon.framework.configuration.Configuration;
+import org.rapla.framework.Configuration;
 import org.rapla.framework.Container;
 import org.rapla.framework.PluginDescriptor;
 import org.rapla.plugin.RaplaExtensionPoints;
