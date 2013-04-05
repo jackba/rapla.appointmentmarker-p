@@ -18,20 +18,19 @@ import org.rapla.plugin.RaplaExtensionPoints;
 
 public class AppointmentMarkerPlugin implements PluginDescriptor
 {
-    public static final String PLUGIN_CLASS = AppointmentMarkerPlugin.class.getName();
     public static final String MARKER_ATTRIBUTE_KEY = "appointmentmarker";
     public String toString() {
         return "Appointment Marker";
     }
 
     public void provideServices(Container container, Configuration config) {
-        container.addContainerProvidedComponent( RaplaExtensionPoints.PLUGIN_OPTION_PANEL_EXTENSION,AppointmentMarkerOption.class.getName(),AppointmentMarkerPlugin.class.getName(), config);
+        container.addContainerProvidedComponent( RaplaExtensionPoints.PLUGIN_OPTION_PANEL_EXTENSION,AppointmentMarkerOption.class,AppointmentMarkerPlugin.class.getName());
         
         if ( !config.getAttributeAsBoolean("enabled", false) )
         	return;
 
-        container.addContainerProvidedComponent( RaplaExtensionPoints.OBJECT_MENU_EXTENSION, AppointmentMarkerMenuFactory.class.getName(), PLUGIN_CLASS, config);
-        container.addContainerProvidedComponent( AppointmentMarker.ROLE, AppointmentMarker.class.getName(), PLUGIN_CLASS, config);
+        container.addContainerProvidedComponent( RaplaExtensionPoints.OBJECT_MENU_EXTENSION, AppointmentMarkerMenuFactory.class, config);
+        container.addContainerProvidedComponent( AppointmentMarker.class, AppointmentMarker.class, config);
     }
 
     public Object getPluginMetaInfos( String key )

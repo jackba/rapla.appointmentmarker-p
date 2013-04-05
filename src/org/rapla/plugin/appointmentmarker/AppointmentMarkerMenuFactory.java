@@ -26,6 +26,7 @@ import org.rapla.gui.ObjectMenuFactory;
 import org.rapla.gui.RaplaGUIComponent;
 import org.rapla.gui.toolkit.DialogUI;
 import org.rapla.gui.toolkit.RaplaMenuItem;
+import org.rapla.plugin.abstractcalendar.RaplaCalendarViewListener;
 
 public class AppointmentMarkerMenuFactory extends RaplaGUIComponent implements ObjectMenuFactory
 {
@@ -36,7 +37,7 @@ public class AppointmentMarkerMenuFactory extends RaplaGUIComponent implements O
     {
         super( context );
         this.markerLabelText = config.getChild("marker-label").getValue("mark");
-        marker= (AppointmentMarker) context.lookup( AppointmentMarker.ROLE);
+        marker=  context.lookup( AppointmentMarker.class);
     }
 
     public RaplaMenuItem[] create( final MenuContext menuContext, final RaplaObject focusedObject )
@@ -45,7 +46,7 @@ public class AppointmentMarkerMenuFactory extends RaplaGUIComponent implements O
         {
             return RaplaMenuItem.EMPTY_ARRAY;
         }
-        if (!menuContext.has("selected_date"))
+        if (!menuContext.has(RaplaCalendarViewListener.SELECTED_DATE))
         {
             return RaplaMenuItem.EMPTY_ARRAY;
         }
@@ -64,7 +65,7 @@ public class AppointmentMarkerMenuFactory extends RaplaGUIComponent implements O
         Date selected;
         try
         {
-            selected = (Date)menuContext.lookup("selected_date");
+            selected = menuContext.lookup(RaplaCalendarViewListener.SELECTED_DATE);
         }
         catch (RaplaContextException e1)
         {
