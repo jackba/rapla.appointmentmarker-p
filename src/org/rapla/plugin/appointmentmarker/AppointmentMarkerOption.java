@@ -22,16 +22,16 @@ import javax.swing.JTextField;
 import org.rapla.components.layout.TableLayout;
 import org.rapla.framework.Configuration;
 import org.rapla.framework.DefaultConfiguration;
+import org.rapla.framework.PluginDescriptor;
 import org.rapla.framework.RaplaContext;
 import org.rapla.framework.RaplaException;
 import org.rapla.gui.DefaultPluginOption;
-import org.rapla.gui.OptionPanel;
 
 /** Not used yet */
-public class AppointmentMarkerOption extends DefaultPluginOption implements OptionPanel {
+public class AppointmentMarkerOption extends DefaultPluginOption {
     JTextField markerLabel = new JTextField();
     
-    public AppointmentMarkerOption( RaplaContext sm ) throws RaplaException
+    public AppointmentMarkerOption( RaplaContext sm ) 
     {
         super( sm );
     }
@@ -76,10 +76,10 @@ public class AppointmentMarkerOption extends DefaultPluginOption implements Opti
     }
 
     /**
-     * @see org.rapla.gui.DefaultPluginOption#getDescriptorClassName()
+     * @see org.rapla.gui.DefaultPluginOption#getPluginClass()
      */
-    public String getDescriptorClassName() {
-        return AppointmentMarkerPlugin.class.getName();
+    public Class<? extends PluginDescriptor> getPluginClass() {
+        return AppointmentMarkerPlugin.class;
     }
     
     public String getName(Locale locale) {

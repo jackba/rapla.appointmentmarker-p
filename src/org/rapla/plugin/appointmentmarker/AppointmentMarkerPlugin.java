@@ -24,7 +24,7 @@ public class AppointmentMarkerPlugin implements PluginDescriptor
     }
 
     public void provideServices(Container container, Configuration config) {
-        container.addContainerProvidedComponent( RaplaExtensionPoints.PLUGIN_OPTION_PANEL_EXTENSION,AppointmentMarkerOption.class,AppointmentMarkerPlugin.class.getName());
+        container.addContainerProvidedComponent( RaplaExtensionPoints.PLUGIN_OPTION_PANEL_EXTENSION,AppointmentMarkerOption.class);
         
         if ( !config.getAttributeAsBoolean("enabled", false) )
         	return;

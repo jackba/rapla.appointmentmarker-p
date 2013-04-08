@@ -20,13 +20,12 @@ import org.rapla.entities.domain.Reservation;
 import org.rapla.entities.dynamictype.Attribute;
 import org.rapla.facade.RaplaComponent;
 import org.rapla.framework.RaplaContext;
-import org.rapla.framework.RaplaException;
 
 public class AppointmentMarker extends RaplaComponent 
 {
     static public String ROLE = AppointmentMarker.class.getName();
 
-    public AppointmentMarker( RaplaContext context ) throws RaplaException
+    public AppointmentMarker( RaplaContext context ) 
     {
         super( context );
     }

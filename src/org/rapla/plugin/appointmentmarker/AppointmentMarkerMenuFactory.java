@@ -94,7 +94,7 @@ public class AppointmentMarkerMenuFactory extends RaplaGUIComponent implements O
             {
                 try 
                 {
-                    Reservation editableEvent = (Reservation)getClientFacade().edit( event);
+                    Reservation editableEvent = getClientFacade().edit( event);
                     marker.setMarked( editableEvent, currentSelectedDate, !isMarked);
                     getClientFacade().store( editableEvent ); 
                 }
