@@ -18,6 +18,7 @@ import org.rapla.plugin.RaplaClientExtensionPoints;
 
 public class AppointmentMarkerPlugin implements PluginDescriptor<ClientServiceContainer>
 {
+	public final static boolean ENABLE_BY_DEFAULT = false;
     public static final String MARKER_ATTRIBUTE_KEY = "appointmentmarker";
     public String toString() {
         return "Appointment Marker";
@@ -26,7 +27,7 @@ public class AppointmentMarkerPlugin implements PluginDescriptor<ClientServiceCo
     public void provideServices(ClientServiceContainer container, Configuration config) {
         container.addContainerProvidedComponent( RaplaClientExtensionPoints.PLUGIN_OPTION_PANEL_EXTENSION,AppointmentMarkerOption.class);
         
-        if ( !config.getAttributeAsBoolean("enabled", false) )
+        if ( !config.getAttributeAsBoolean("enabled", ENABLE_BY_DEFAULT) )
         	return;
 
         container.addContainerProvidedComponent( RaplaClientExtensionPoints.OBJECT_MENU_EXTENSION, AppointmentMarkerMenuFactory.class, config);
