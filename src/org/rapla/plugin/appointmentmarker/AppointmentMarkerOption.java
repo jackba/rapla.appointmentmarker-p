@@ -78,7 +78,7 @@ public class AppointmentMarkerOption extends DefaultPluginOption {
     /**
      * @see org.rapla.gui.DefaultPluginOption#getPluginClass()
      */
-    public Class<? extends PluginDescriptor> getPluginClass() {
+    public Class<? extends PluginDescriptor<?>> getPluginClass() {
         return AppointmentMarkerPlugin.class;
     }
     

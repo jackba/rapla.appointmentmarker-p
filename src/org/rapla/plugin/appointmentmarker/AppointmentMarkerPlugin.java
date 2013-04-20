@@ -11,31 +11,26 @@
  | Definition as published by the Open Source Initiative (OSI).             |
  *--------------------------------------------------------------------------*/
 package org.rapla.plugin.appointmentmarker;
+import org.rapla.client.ClientServiceContainer;
 import org.rapla.framework.Configuration;
-import org.rapla.framework.Container;
 import org.rapla.framework.PluginDescriptor;
-import org.rapla.plugin.RaplaExtensionPoints;
+import org.rapla.plugin.RaplaClientExtensionPoints;
 
-public class AppointmentMarkerPlugin implements PluginDescriptor
+public class AppointmentMarkerPlugin implements PluginDescriptor<ClientServiceContainer>
 {
     public static final String MARKER_ATTRIBUTE_KEY = "appointmentmarker";
     public String toString() {
         return "Appointment Marker";
     }
 
-    public void provideServices(Container container, Configuration config) {
-        container.addContainerProvidedComponent( RaplaExtensionPoints.PLUGIN_OPTION_PANEL_EXTENSION,AppointmentMarkerOption.class);
+    public void provideServices(ClientServiceContainer container, Configuration config) {
+        container.addContainerProvidedComponent( RaplaClientExtensionPoints.PLUGIN_OPTION_PANEL_EXTENSION,AppointmentMarkerOption.class);
         
         if ( !config.getAttributeAsBoolean("enabled", false) )
         	return;
 
-        container.addContainerProvidedComponent( RaplaExtensionPoints.OBJECT_MENU_EXTENSION, AppointmentMarkerMenuFactory.class, config);
+        container.addContainerProvidedComponent( RaplaClientExtensionPoints.OBJECT_MENU_EXTENSION, AppointmentMarkerMenuFactory.class, config);
         container.addContainerProvidedComponent( AppointmentMarker.class, AppointmentMarker.class, config);
-    }
-
-    public Object getPluginMetaInfos( String key )
-    {
-        return null;
     }
 
 }
