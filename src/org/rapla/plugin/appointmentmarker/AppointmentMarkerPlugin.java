@@ -12,9 +12,9 @@
  *--------------------------------------------------------------------------*/
 package org.rapla.plugin.appointmentmarker;
 import org.rapla.client.ClientServiceContainer;
+import org.rapla.client.RaplaClientExtensionPoints;
 import org.rapla.framework.Configuration;
 import org.rapla.framework.PluginDescriptor;
-import org.rapla.plugin.RaplaClientExtensionPoints;
 
 public class AppointmentMarkerPlugin implements PluginDescriptor<ClientServiceContainer>
 {
