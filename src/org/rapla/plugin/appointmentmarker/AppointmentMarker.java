@@ -1,6 +1,5 @@
 package org.rapla.plugin.appointmentmarker;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -62,7 +61,7 @@ public class AppointmentMarker extends RaplaComponent
                     Date markedDate = format.parseDate( dateString, false);
                     markedDates.add(markedDate);
                 }
-                catch (ParseException e)
+                catch (Exception e)
                 {
                     getLogger().error("Couldnt parse date " + dateString + " for appointment marking. Ignoring");
                 }
